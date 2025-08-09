@@ -5,7 +5,7 @@ This is a simple User Management System built with Spring Boot, showcasing CRUD 
 
 ## Postman Testing
 ```bash
-[ link : (https://web.postman.co/workspace/My-Workspace~1fdef72a-8640-44ef-83e2-17e6555fb1a9/collection/24764318-86a7d897-3e6b-40fd-bd26-e71bc7c8fdc9?action=share&source=copy-link&creator=24764318)]
+https://web.postman.co/workspace/My-Workspace~1fdef72a-8640-44ef-83e2-17e6555fb1a9/collection/24764318-86a7d897-3e6b-40fd-bd26-e71bc7c8fdc9?action=share&source=copy-link&creator=24764318
 ```
 
 ## Tech Stack
