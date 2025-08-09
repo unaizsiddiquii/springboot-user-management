@@ -2,6 +2,7 @@ package com.unaiz.usermanagement.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 @Getter
@@ -21,8 +22,10 @@ public class UserRequestDto {
     @NotBlank(message = "Email is required")
     private String email;
 
+    @Size(min = 6, message = "Password must be at least 6 characters")
     @NotBlank(message = "Password is required")
     private String password;
 
+    @NotBlank(message = "Role is Required")
     private String role;
 }

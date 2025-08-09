@@ -1,5 +1,6 @@
 package com.unaiz.usermanagement.repository;
 
+import com.unaiz.usermanagement.dto.UserResponseDto;
 import com.unaiz.usermanagement.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
