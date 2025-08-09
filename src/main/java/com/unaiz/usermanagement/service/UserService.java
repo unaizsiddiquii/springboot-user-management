@@ -4,6 +4,7 @@ import com.unaiz.usermanagement.dto.UserRequestDto;
 import com.unaiz.usermanagement.dto.UserResponseDto;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserService {
     UserResponseDto createUser(UserRequestDto requestDto);
@@ -15,5 +16,7 @@ public interface UserService {
     UserResponseDto updateUser(Long id, UserRequestDto requestDto);
 
     void deleteUser(Long id);
+
+    UserResponseDto findByEmail(String email);
 
 }

@@ -21,7 +21,7 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<UserResponseDto> createUser(@Valid @RequestBody UserRequestDto requestDto) {
-        return ResponseEntity.ok(userService.createUser(requestDto));
+        return new ResponseEntity<>(userService.createUser(requestDto), HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
@@ -43,5 +43,13 @@ public class UserController {
     public ResponseEntity<String> deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
         return ResponseEntity.ok("User delete Successfully");
+    }
+
+    @GetMapping("/email/{email}")
+    public ResponseEntity<UserResponseDto> getUserByEmail(@Valid @PathVariable String email) {
+
+        UserResponseDto user = userService.findByEmail(email);
+        return ResponseEntity.ok(user);
+
     }
 }

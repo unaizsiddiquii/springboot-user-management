@@ -3,6 +3,7 @@ package com.unaiz.usermanagement.service;
 import com.unaiz.usermanagement.dto.UserRequestDto;
 import com.unaiz.usermanagement.dto.UserResponseDto;
 import com.unaiz.usermanagement.entity.User;
+import com.unaiz.usermanagement.exception.UserNotFoundException;
 import com.unaiz.usermanagement.mapper.UserMapper;
 import com.unaiz.usermanagement.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +11,7 @@ import org.mapstruct.control.MappingControl;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -33,7 +35,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserResponseDto getUserById(Long id) {
         User user = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
+                .orElseThrow(() -> new UserNotFoundException("User not found with id: " + id));
         return userMapper.toResponseDto(user);
     }
 
@@ -50,7 +52,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserResponseDto updateUser(Long id, UserRequestDto requestDto) {
         User user = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
+                .orElseThrow(() -> new UserNotFoundException("User not found with id: " + id));
 
         // Update fields
         user.setFirstName(requestDto.getFirstName());
@@ -67,8 +69,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(Long id) {
         User user = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
+                .orElseThrow(() -> new UserNotFoundException("User not found with id: " + id));
 
         userRepository.delete(user);
     }
+
+    //find user by email
+    @Override
+    public UserResponseDto findByEmail(String email) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new UserNotFoundException("User with email " + email + " not found"));
+
+        return userMapper.toResponseDto(user);
+    }
+
+
 }
