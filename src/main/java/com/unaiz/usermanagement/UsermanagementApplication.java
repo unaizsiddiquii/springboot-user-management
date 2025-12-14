@@ -8,6 +8,7 @@ public class UsermanagementApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(UsermanagementApplication.class, args);
+		System.out.println("User Management Service is running...");
 	}
 
 }
