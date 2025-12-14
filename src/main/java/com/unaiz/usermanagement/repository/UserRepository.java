@@ -1,13 +1,13 @@
-package com.unaiz.usermanagement.repository;
+// package com.unaiz.usermanagement.repository;
 
-import com.unaiz.usermanagement.dto.UserResponseDto;
-import com.unaiz.usermanagement.entity.User;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+// import com.unaiz.usermanagement.dto.UserResponseDto;
+// import com.unaiz.usermanagement.entity.User;
+// import org.springframework.data.jpa.repository.JpaRepository;
+// import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
+// import java.util.Optional;
 
-@Repository
-public interface UserRepository extends JpaRepository<User, Long> {
-    Optional<User> findByEmail(String email);
-}
+// @Repository
+// public interface UserRepository extends JpaRepository<User, Long> {
+//     Optional<User> findByEmail(String email);
+// }
